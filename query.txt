@@ -1,5 +1,1 @@
-CREATE DATABASE `ShopAway`;
-
-CREATE TABLE `ShopAway`.`Proto_1`(`sl_no` INT(5) AUTO_INCREMENT NOT NULL,`product_id` VARCHAR(30) NOT NULL, `name` VARCHAR(50) NOT NULL,`price` INT(8) NOT NULL,`discount` INT(3) NOT NULL, `stock` INT(7) NOT NULL,`review` VARCHAR(350) NOT NULL, `views` INT(200) NOT NULL, PRIMARY KEY(`sl_no`));
-
-ALTER TABLE `proto_1` ADD `review_n` INT(20) NOT NULL AFTER `views`, ADD `category` VARCHAR(20) NOT NULL AFTER `review_n`;
+INSERT INTO `accounts` (`user_id`, `first_name`, `last_name`, `username`, `password`, `email`, `address`, `role`, `ip`, `date`) VALUES ('userid', 'fname', 'lname', 'fname lname', 'arfaerfeafq', 'arfaerfeafq', 'adderess', 'user', '10.2.3.2', '10254545')
