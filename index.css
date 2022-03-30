@@ -2,10 +2,6 @@
     margin: 0;
 }
 /* Wrapper Style*/
-.wrapper
-{
-    color: white;
-}
 
 /*Header Style*/
 .header
@@ -14,12 +10,17 @@
     width: 100%;
     background-color: #000;
     filter: drop-shadow(0px 2px 6px #7a7979); 
+    display: flex;
+    flex-direction: row;
 }
  .header-logo
  {
     font-family: 'Poppins', sans-serif;
-    font-size: 3rem; 
-    padding:3vh;
+    font-size: 4rem; 
+    padding:5%;
+ }
+ .header-logo:hover{
+     text-decoration: none;
  }
 /*NavBar Style*/
 .nav-list-item
@@ -29,19 +30,22 @@
 a
 {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight:bolder;
     text-decoration: none;
     color:#fff;
     padding: 0 1vw;
 }
-li:hover{
+a:hover{
     text-decoration: underline;
 }
-.left,.right
+.left
 {
     display: inline-block;
-    width: 49vw;
+    width: 49%;
+}
+.right{
+    padding:1.5% 0 0 13.5%;
 }
 .active
 {
@@ -65,8 +69,15 @@ li:hover{
     border-radius: 9px;
     box-shadow: 3px 3px 7px #cccaca, -3px -3px 7px #cccaca;
 }
+/*Form Heading Style*/
+.form-header
+{
+    margin: auto;
+    text-decoration: underline;
+    padding-bottom: 1.7%;
+}
 
-input,select{
+input,select,textarea{
     padding: 1.5%;
     margin: 1.5% 0;
     font-size: 17px;
@@ -75,16 +86,29 @@ input,select{
     border-radius: 9px;
     filter: drop-shadow(0px 2px 3px #cccaca);
 }
+
+/*Address Input box styling*/
+textarea{
+    height: 15vh;
+}
 button{
-    width: 20%;
-    margin: auto;
+    height: auto;
+    width: 21%;
+    margin: 1.5% auto;
     padding: 1.3% .3%;
     background-color: #000;
     color: #fff;
     border-radius: 9px;
     filter: drop-shadow(3px 3px 6px #cccaca);
     font-family: 'Roboto Mono', sans-serif;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 5px 5px 10px #717070,-5px -5px 10px #717070;
+    transition: 300ms;
+}
+button:hover{
+    box-shadow: none;
+    width: 20%;
+    font-size: 17px;
 }

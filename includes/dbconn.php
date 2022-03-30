@@ -3,7 +3,7 @@
     $user = "root";
     $pass = "";
     $db = "shop_away";
-    $res = mysqli_connect($host,$user,$pass,$db);
+    $con = mysqli_connect($host,$user,$pass,$db);
     $test = "Connecting Successfully";
     if (mysqli_connect_errno()) {
         echo '' 

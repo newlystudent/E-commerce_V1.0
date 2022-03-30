@@ -1,3 +1,8 @@
+<?php
+    session_start();
+?>
+
+
 <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -14,14 +19,24 @@
     <body>
         <div class="wrapper">
             <div class="header">
-                <div class="left"><h1 class="header-logo"><a class="header-logo" href="index_.html">SHOPAWAY</a></h1></div>
+                <div class="left"><h1 class="header-logo"><a class="header-logo" href="index_.php">SHOPAWAY</a></h1></div>
                 <div class="right">
                     <nav>
                         <ul class="nav-list">
                             <li class="nav-list-item"><a  href="categories.php">Categories</a></li>
                             <li class="nav-list-item"><a  href="about_us.php">About Us</a></li>
-                            <li class="nav-list-item"><a  href="sign_up.php">Sign Up</a></li>
-                            <li class="nav-list-item"><a  href="log_in.php">Log In</a></li>
+                            <?php
+                                if(isset($_SESSION["uid"]))
+                                {
+                                    echo '<li class="nav-list-item"><a  href="profile.php">Profile</a></li>';
+                                    echo '<li class="nav-list-item"><a  href="includes/logout.php">Log Out</a></li>';
+                                }
+                                else
+                                {
+                                    echo '<li class="nav-list-item"><a  href="sign_up.php">Sign Up</a></li>';
+                                    echo '<li class="nav-list-item"><a  href="log_in.php">Log In</a></li>';
+                                }
+                            ?>
                         </ul>
                     </nav>
                 </div>

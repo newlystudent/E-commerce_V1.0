@@ -1,1 +1,1 @@
-INSERT INTO `accounts` (`user_id`, `first_name`, `last_name`, `username`, `password`, `email`, `address`, `role`, `ip`, `date`) VALUES ('userid', 'fname', 'lname', 'fname lname', 'arfaerfeafq', 'arfaerfeafq', 'adderess', 'user', '10.2.3.2', '10254545')
+INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `address`, `role`, `ip`, `date`) VALUES ('userid', 'fname lname', 'arfaerfeafq', 'arfaerfeafq', 'adderess', 'user', '10.2.3.2', '10254545')
