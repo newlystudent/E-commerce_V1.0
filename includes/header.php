@@ -1,5 +1,8 @@
 <?php
+if(session_status() == PHP_SESSION_NONE)
+{
     session_start();
+}
 ?>
 
 
@@ -28,8 +31,17 @@
                             <?php
                                 if(isset($_SESSION["uid"]))
                                 {
-                                    echo '<li class="nav-list-item"><a  href="profile.php">Profile</a></li>';
-                                    echo '<li class="nav-list-item"><a  href="includes/logout.php">Log Out</a></li>';
+                                    if($_SESSION["role"] == "User")
+                                    {
+                                        echo '<li class="nav-list-item"><a  href="profile.php">Profile</a></li>';
+                                        echo '<li class="nav-list-item"><a  href="includes/logout.php">Log Out</a></li>';
+                                    }
+                                    elseif($_SESSION["role"] == "Seller")
+                                    {
+                                        echo '<li class="nav-list-item"><a  href="profile.php">Profile</a></li>';
+                                        echo '<li class="nav-list-item"><a  href="addProduct.php">Add Product</a></li>';
+                                        echo '<li class="nav-list-item"><a  href="includes/logout.php">Log Out</a></li>';
+                                    }
                                 }
                                 else
                                 {

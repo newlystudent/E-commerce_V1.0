@@ -38,7 +38,7 @@ if($empt_stat == 0){
 
         if($row != NULL)
         {
-            chkEmail($row['email'],$email);                       
+            chkEmail();                       
         } 
         
         
@@ -51,7 +51,7 @@ if($empt_stat == 0){
         
         if($row != NULL)
         {
-            chkNum($row['contact_no'],$contact_no);
+            chkNum();
         }
 
         
@@ -62,7 +62,7 @@ if($empt_stat == 0){
 
         if($row != NULL)
         {
-            header("location:sign_up?error=userid%already%exists");                        
+            header("location:sign_up.php?error=userid%already%exists");                        
         }        
         
         
@@ -73,16 +73,20 @@ if($empt_stat == 0){
         }
         
         ?>
-        
+        <style>
+            .sign2log{
+                text-decoration:none;width:26%;margin:6.5% 3.5% 0 3.5%;font-size:19px;
+            }
+        </style>
         <div class="form" style="text-align: center;color:#000;font-family: 'Roboto Slab', sans-serif;width:35%;">
                 <h2 style="padding:1.8%;">
             <?php
-                echo 'Account Created Successfully';
+                echo '<h2 style="text-decoration:underline;">__Account Created Successfully__</h2>';
             ?>
                 </h2>
-                <form action="log_In">
-                    <button >Log In</button>
-                </form>
+                
+                    <button><a class="sign2log" href="log_in.php">Log In</a></button>
+                </h2>
         </div>
 <?php
 }

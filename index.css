@@ -16,8 +16,8 @@
  .header-logo
  {
     font-family: 'Poppins', sans-serif;
-    font-size: 4rem; 
-    padding:5%;
+    font-size: 3rem; 
+    padding:3%;
  }
  .header-logo:hover{
      text-decoration: none;
@@ -30,13 +30,13 @@
 a
 {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight:bolder;
     text-decoration: none;
     color:#fff;
     padding: 0 1vw;
 }
-a:hover{
+.nav-list-item a:hover{
     text-decoration: underline;
 }
 .left
@@ -45,7 +45,8 @@ a:hover{
     width: 49%;
 }
 .right{
-    padding:1.5% 0 0 13.5%;
+    padding:1.5% 0 0 1.5%;
+    width: auto;
 }
 .active
 {
@@ -55,19 +56,56 @@ a:hover{
     padding: .5rem 1rem;
 }
 /*Body part Styling*/
+.profile-form h3
+{
+    font-size: 1.1rem;text-decoration:none;font-family: 'Roboto Slab', monospace;padding:3.2% 0 3.2% 9.2%;font-weight:700;
+}
 
+.profile-form input{
+    margin: auto;
+}
+.profile-form button{
+    margin: auto;width: 28%;padding: 3%;
+    margin: 4.7% auto;
+    font-family: 'Roboto', monospace;
+    font-weight: bold;
+}
+.profile-form hr
+{
+    border: 1px solid #000;height:0;background-color: black;width: 70%;margin: 0 auto 1% auto;
+}
 /*Form Styling*/
 .form
 {
     height: auto;
     display: flex;
     flex-direction: column;
-    width:45%;
-    margin: 5% auto;
+    width:59%;
+    margin: 5% auto 0 auto;
     padding: 2% 2% 2% 2%;
     background-color: rgb(252, 252, 252);
     border-radius: 9px;
     box-shadow: 3px 3px 7px #cccaca, -3px -3px 7px #cccaca;
+    align-items: center;
+}
+.profile-form 
+{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width:39%;
+    margin: 2% auto 2% auto;
+    padding: 2% 2% 2% 2%;
+    background-color: #fff;
+    border-radius: 9px;
+    box-shadow: 3px 3px 7px #cccaca, -3px -3px 7px #cccaca;
+}
+.butns
+{
+    width: 65%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
 }
 /*Form Heading Style*/
 .form-header
@@ -76,39 +114,42 @@ a:hover{
     text-decoration: underline;
     padding-bottom: 1.7%;
 }
-
-input,select,textarea{
+.sel
+{
+    width: 78%;
+}
+input,select,textarea
+{   
+    width: 75%;
     padding: 1.5%;
     margin: 1.5% 0;
-    font-size: 17px;
+    font-size: 1rem;
     font-family: 'Roboto Slab', sans-serif;
     font-weight: bold;
     border-radius: 9px;
     filter: drop-shadow(0px 2px 3px #cccaca);
 }
-
 /*Address Input box styling*/
 textarea{
-    height: 15vh;
+    height: 35%;
 }
 button{
     height: auto;
-    width: 21%;
-    margin: 1.5% auto;
-    padding: 1.3% .3%;
+    width: 20%;
+    margin: 1.5%;
+    padding: 1.3% 0%;
     background-color: #000;
     color: #fff;
     border-radius: 9px;
-    filter: drop-shadow(3px 3px 6px #cccaca);
     font-family: 'Roboto Mono', sans-serif;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 5px 5px 10px #717070,-5px -5px 10px #717070;
-    transition: 300ms;
+    box-shadow: 4px 4px 8px #717070,-4px -4px 8px #717070;
+    transition: 100ms ease-in-out;
 }
 button:hover{
-    box-shadow: none;
-    width: 20%;
-    font-size: 17px;
+    box-shadow: 3px 3px 5px #cccaca,-3px -3px 3px #cccaca;   
 }
+
+

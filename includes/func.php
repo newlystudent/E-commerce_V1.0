@@ -1,4 +1,9 @@
 <?php
+
+if(session_status() == PHP_SESSION_NONE)
+{
+    session_start();
+}
     function passCheck($pass,$stored){
         if($pass == $stored)
         {
@@ -8,7 +13,8 @@
             return 0;
         }
     }
-    function emptyCheck($inpArray){
+    function emptyCheck($inpArray)
+    {
         foreach($inpArray as $item)
         {
             $count = 0;
@@ -37,18 +43,63 @@
             exit();
         }
     }
-    function chkEmail($email1,$email2)
+    function chkEmail()
     {
-        if($email1 == $email2)
+            header("location:sign_up.php?error=email%already%taken");
+    }
+    function chkNum()
+    {
+            header("location:sign_up.php?error=contact%no%already%taken%for%another%account");
+    }
+    function chkemailProf($inp)
+    {
+        if($inp['user_id'] != $_SESSION["uid"])
         {
-            header("location:sign_up?error=email%already%taken");
+            header('location:profile.php?error=email%already%used%by%another%account'.$inp['user_id']."?".$_SESSION["uid"]);
+            exit();
+        }
+        else{
+            return 0;
         }
     }
-    function chkNum($num1,$num2)
+    function chkcontProf($inp)
     {
-        if($num1 == $num2)
+        if($inp['user_id'] != $_SESSION["uid"])
         {
-            header("location:sign_up?error=contact%no%already%taken");
+            header('location:profile.php?error=contact%no%already%used%by%another%account'.$inp['user_id']."?".$_SESSION["uid"]);
+            exit();
+        }
+        else{
+            return 0;
+        }
+    }   
+    function profUpdtchk($inp)
+    {  
+        $count = 0;
+        if(($inp[0] == $_SESSION["uname"]))
+        {
+            $count++;
+            if($inp[1] == $_SESSION["email"])
+            {
+                $count++;
+                if($_SESSION["contact_no"])
+                {
+                    $count++;
+                }
+                else
+                {
+                    return $count;
+                }
+            }
+            else
+            {
+                return $count;
+            }
+            
+        }
+        else
+        {
+            return $count;
         }
     }
 ?>
