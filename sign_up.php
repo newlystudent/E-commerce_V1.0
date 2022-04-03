@@ -3,8 +3,9 @@ include'includes/header.php';
 ?>
            
             <div class="body">
-                <form class="form" action="sign.php" method="POST">
-                    <h1 class="form-header">___Welcome To Sign Up Panel___</h1>
+            <h1 style="margin-top: 30px;">Welcome To Sign Up Panel</h1>
+                <form class="form-1" action="sign.php" method="POST">
+                    
                     <select name="role" class="sel">
                         <option value=""> Select Your Account Option </option>
                         <option value="User">User</option>
@@ -21,3 +22,6 @@ include'includes/header.php';
                     <a href="log_in.php" style="color: black;margin:auto;font-size:1rem;padding:1.7% 0 0 0;"><p style="display: inline-block;">Already have an account?</p>Log In</a>
                 </form>
             </div>
+            <?php
+        require_once 'includes/footer.php';
+    ?>

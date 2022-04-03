@@ -2,6 +2,7 @@
     require_once 'includes/header.php';
     require_once 'includes/dbconn.php';
     require_once 'includes/func.php';
+    require_once 'includes/date_time.php';
 
     
     $email = $_POST['email'];
@@ -65,12 +66,14 @@
     <form class="form" action="profile.php" style="text-align: center;color:#000;font-family: 'Roboto Slab', sans-serif;width:35%;">
         <h2 style="padding:1.8%;">
 <?php
-    echo 'Profile Updated Successfully';
+    header('location:profile.php?status=profile%updated%successfully');
 ?>
-        </h2>
-        <button style="width: 25%;margin-top:5%;">Go back to Profile</button>      
+        </h2>     
     </form>
     </div>
 <?php
 }
+?>
+<?php
+        require_once 'includes/footer.php';
 ?>

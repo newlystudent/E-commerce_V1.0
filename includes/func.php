@@ -18,7 +18,7 @@ if(session_status() == PHP_SESSION_NONE)
         foreach($inpArray as $item)
         {
             $count = 0;
-            if(empty($item))
+            if(isset($item)!=1)
             {
                 return 0;
             }
@@ -76,7 +76,7 @@ if(session_status() == PHP_SESSION_NONE)
     function profUpdtchk($inp)
     {  
         $count = 0;
-        if(($inp[0] == $_SESSION["uname"]))
+        if($inp[0] == $_SESSION["uname"])
         {
             $count++;
             if($inp[1] == $_SESSION["email"])

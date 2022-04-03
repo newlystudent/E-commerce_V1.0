@@ -78,16 +78,16 @@ if($empt_stat == 0){
                 text-decoration:none;width:26%;margin:6.5% 3.5% 0 3.5%;font-size:19px;
             }
         </style>
-        <div class="form" style="text-align: center;color:#000;font-family: 'Roboto Slab', sans-serif;width:35%;">
-                <h2 style="padding:1.8%;">
-            <?php
-                echo '<h2 style="text-decoration:underline;">__Account Created Successfully__</h2>';
-            ?>
+        <div class="form-1" style="text-align: center;color:#000;font-family: 'Roboto Slab', sans-serif;margin:17px auto;">
+                <h2 style="padding:1.8%;text-align: center;">
+                    Account Created Successfully!
                 </h2>
-                
                     <button><a class="sign2log" href="log_in.php">Log In</a></button>
                 </h2>
         </div>
 <?php
 }
+?>
+<?php
+        require_once 'includes/footer.php';
 ?>
