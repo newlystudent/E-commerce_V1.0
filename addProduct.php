@@ -12,6 +12,7 @@
         $pr_brand = $_POST['pr_brand'];
         $prprice = $_POST['pr_price'];
         $prdisc = $_POST['pr_disc'];
+        $prstock = $_POST['pr_stock'];
         $file = $_FILES['file'];
 
         $inpArray = [$prname,$prcat,$prsubcat,$pr_brand,$prprice,$prdisc,$file];
@@ -44,9 +45,9 @@
                         $filenewname=uniqid('',true).".".$fileext;
                         $filedestination='uploaded/'.$filenewname;
                         move_uploaded_file($filetmpname,$filedestination);
-                        $q="INSERT INTO `products` (`product_id`, `product_name`, `category`, `sub_category`, `brand`, `image`, `price`, `seller_id`,`ip`,`date`,`time`)
+                        $q="INSERT INTO `products` (`product_id`, `product_name`, `category`, `sub_category`, `brand`, `image`, `price`, `discount`,`seller_id`,`ip`,`date`,`time`,`stock`)
                         VALUES 
-                        ('$fileid', ' $prname', '$prcat', '$prsubcat', '$pr_brand', '$filedestination', '$prprice', '$uid','$ip','$date','$time');";
+                        ('$fileid', ' $prname', '$prcat', '$prsubcat', '$pr_brand', '$filedestination', '$prprice','$prdisc','$uid','$ip','$date','$time','$prstock');";
                         $rs=mysqli_query($con,$q);
                         header("location:addProductform.php?status=product%uploaded");
                     }

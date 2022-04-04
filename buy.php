@@ -17,6 +17,13 @@
 
         $q = "INSERT INTO `purchase` (`product_id`, `product_name`, `buyer_id`, `ip`, `date`, `time`) VALUES ('$productid', '$productname', '$userid', '$ip', '$date', '$time');";
         $res = mysqli_query($con,$q);
+        $q = "SELECT * FROM `products` WHERE `product_id` = '$productid';";
+        $res = mysqli_query($con,$q);
+        $row = mysqli_fetch_array($res);
+        $stock = $row['stock'];
+        $stockUpdate = $stock-1;
+        $q = "UPDATE `products` SET `stock` = '$stockUpdate' WHERE `product_id` = '$productid';";
+        $res = mysqli_query($con,$q);
         ?><div class="form-1" style="text-align: center;color:#000;font-family: 'Roboto Slab', sans-serif;margin:50px auto 50px auto;">
                 <h2 style="padding:1.8%;text-align: center;font-size:35px;margin-top:30px;">
                     purchase Successfull!

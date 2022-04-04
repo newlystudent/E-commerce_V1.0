@@ -22,6 +22,7 @@ body {
     padding: 30px 0;
 }
 h1{
+    font-size: 45px;
     padding-top: 300px;
     text-align: center;
 }
@@ -30,7 +31,7 @@ h1{
   width: 0;
   position: fixed;
   z-index: 0;
-  top:156px;
+  top:150px;
   left: 0;
   background-color: #111;
   overflow-x: hidden;
@@ -74,6 +75,7 @@ h1{
     border-radius: 10px;
     margin: 50px auto;
     overflow-y: scroll;
+    border: 5px solid #111;
     justify-content: center;
 }
 
@@ -104,26 +106,21 @@ body::-webkit-scrollbar
 }
 ::-webkit-scrollbar-track
 {
+    background-color: #111;
     margin:.01rem;
 }
 ::-webkit-scrollbar-thumb
 {
     background-color: #1b1a1d;
+    border-radius: 5px;
     border: 3.7px solid #ffffff;
 }
 body::-webkit-scrollbar-thumb
 {
-    background-color: #555357;
-    border: 3.7px solid #5d5b61;
+    background-color: #000;
+    border: 3.7px solid #fff;
 }
-::-webkit-scrollbar-thumb:hover
-{
-    background: linear-gradient(#323134,#58575a);
-}
-body::-webkit-scrollbar-thumb:hover
-{
-    background: linear-gradient(#3e3d3f,#bdbbbf);
-}
+
 .footer
 {
     width: 100%;

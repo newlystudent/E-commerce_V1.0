@@ -17,6 +17,7 @@
     <input type="text" name="pr_brand" placeholder="Product Brand" required>
     <input type="text" name="pr_price" placeholder="Product Price" required>
     <input type="text" name="pr_disc" placeholder="Product Discount" required>
+    <input type="text" name="pr_stock" placeholder="Product Stock" required>
     <button type="submit" name="upload">Upload</button>
 
 </form>

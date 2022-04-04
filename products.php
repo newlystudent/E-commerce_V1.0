@@ -26,7 +26,7 @@
             <h2>Discount : <?php echo $row['discount']."%"; ?></h2>
             <h2>Items-left : <?php echo $row['stock']." only"; ?></h2>
             </div>
-            <h4 style="width: 60%;"><form action="buy.php" method="post"><input type="text" value="<?php echo $productid?>" style="display:none;" name='product_id' /><button style="80%">BUY NOW</button></form></h4>
+            <h4><form action="buy.php" method="post"><input type="text" value="<?php echo $productid?>" style="display:none;" name='product_id' /><button>BUY NOW</button></form></h4>
         </div>
     </div>
     <?php

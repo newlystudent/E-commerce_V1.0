@@ -21,8 +21,7 @@
                     while ($row = mysqli_fetch_array($res))
                     {
                         ?>
-                        <h4 style="font-size:25px;font-family: 'Poppins', sans-serif;"><?php echo $row['sub_category']."   ".$temp;?></h4>
-                        <hr class="form-category">
+                        <h4><?php echo $row['sub_category']."   ".$temp;?></h4>
                         <div class="form-sub-category">
                             <?php
                             $subtemp = $row['sub_category'];
@@ -39,8 +38,8 @@
                                                 </div>
                                                 <div class="form product-data">
                                                     <input type="text" value=<?= $row['product_id']?> style="display:none;" name="pro_id">
-                                                    <button style="color:#000;background-color:#fff;border:0;box-shadow:none;width:150px;font-size:17px;"><div class="product-name"><?php echo $row['product_name']?></div></button>
-                                                    <button style="color:#000;background-color:#fff;border:0;box-shadow:none;margin:10px auto 0 auto;"><?php echo $row['price']." ₹"?></button>
+                                                    <button style="color:#000;background-color:#fff;border:0;box-shadow:none;width:150px;font-size:14px;"><div class="product-name"><?php echo $row['product_name']?></div></button>
+                                                    <button style="color:#000;background-color:#fff;border:0;box-shadow:none;margin:10px auto 0 auto;font-size:14px"><?php echo $row['price']." ₹"?></button>
                                                 </div>
                                         </form>
                                     </div>
