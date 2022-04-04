@@ -382,7 +382,7 @@
             text-align: center;
             padding: 15px;
         }
-@media only screen and (max-width: 1445px) and (min-width: 881px)
+@media only screen and (max-width: 1440px) and (min-width: 1001px)
 {
     .right
     {
@@ -407,7 +407,7 @@
         font-size: 12px;
     }
 }
-@media only screen and (max-width: 880px)
+@media only screen and (max-width: 1000px)
 {
     .wrapper
     {
@@ -455,6 +455,7 @@
     [class*="form-"]
     {
         width: 90%;
+        margin-bottom: 60px;
     }
     .form-profile-form h1
     {
