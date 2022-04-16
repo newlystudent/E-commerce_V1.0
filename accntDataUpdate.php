@@ -9,7 +9,7 @@
     $contact_no = $_POST['contact_no'];
 
 
-    $inpArray = [$email,$contact_no];
+    $inpArray = array("$email","$contact_no");
     $empt_stat = emptyCheck($inpArray);
 
     if($empt_stat == 0){

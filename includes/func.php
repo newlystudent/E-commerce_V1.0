@@ -1,9 +1,4 @@
 <?php
-
-if(session_status() == PHP_SESSION_NONE)
-{
-    session_start();
-}
     function passCheck($pass,$stored){
         if($pass == $stored)
         {

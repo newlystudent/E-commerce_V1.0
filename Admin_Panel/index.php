@@ -5,10 +5,11 @@
     $db = "shop_away";
     $con = mysqli_connect($host,$user,$pass,$db);
     $test = "Connecting Successfully";
-    if (mysqli_connect_errno()) {
+    if (mysqli_connect_errno())
+    {
 ?>
         <h1 style="margin:auto;text-align:center;">Connection Failed!! </h1>
-<?php echo '' . mysqli_connect_error();
+        <?php echo '' . mysqli_connect_error();
         exit();
     }                        
 ?>
@@ -34,6 +35,7 @@
                 <a href="#users">Users</a>
                 <a href="#sellers">Sellers</a>
                 <a href="#products">Products</a>
+                <a href="#purchase">Purchase</a>
             </div>
 
             <div id="main">
@@ -151,6 +153,41 @@
                                 <div class="row-data"><?php echo $row['date']; ?></div>
                                 <div class="row-data"><?php echo $row['time']; ?></div>
                                 <div class="row-data"><?php echo $row['stock']; ?></div>
+                            </div>
+                            <?php
+                            }
+                        ?>
+                    </div>
+                </div>
+                <h1 id="purchase">Purchase</h1>
+                <div class="info" id="products">
+                    <div class="data-table" style="padding:20px 0">
+                        <?php 
+                            $q="SELECT * FROM `purchase`";
+                            $res = mysqli_query($con,$q);
+                            ?>
+                            
+                            <div class="row" style="margin:-30px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;">
+                                <div class="row-data" style="font-size: 24px;" >Serial number</div>
+                                <div class="row-data" style="font-size: 24px;" >Product id</div>
+                                <div class="row-data" style="font-size: 24px;" >Product Name</div>
+                                <div class="row-data" style="font-size: 24px;" >Buyer Id</div>
+                                <div class="row-data" style="font-size: 24px;" >Ip Address</div>
+                                <div class="row-data" style="font-size: 24px;" >Date</div>
+                                <div class="row-data" style="font-size: 24px;" >Time</div>
+                            </div>
+                            <?php
+                            while($row = mysqli_fetch_array($res))
+                            {
+                            ?>
+                            <div class="row">
+                                <div class="row-data"><?php echo  $row['s_no']; ?></div>
+                                <div class="row-data"><?php echo $row['product_id']; ?></div>
+                                <div class="row-data"><?php echo $row['product_name']; ?></div>
+                                <div class="row-data"><?php echo $row['buyer_id']; ?></div>
+                                <div class="row-data"><?php echo $row['ip']; ?></div>
+                                <div class="row-data"><?php echo $row['date']; ?></div>
+                                <div class="row-data"><?php echo $row['time']; ?></div>
                             </div>
                             <?php
                             }

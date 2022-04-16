@@ -1,8 +1,9 @@
 <?php
-if(session_status() == PHP_SESSION_NONE)
+if(!isset($_SESSION["uid"]))
 {
     session_start();
 }
+
 ?>
 
 
@@ -22,7 +23,7 @@ if(session_status() == PHP_SESSION_NONE)
     <body>
         <div class="wrapper">
             <div class="header">
-                <div class="left"><h1 class="header-logo"><a class="header-logo" href="index_.php">SHOPAWAY</a></h1>
+                <div class="left"><h1 class="header-logo"><a class="header-logo" href="index.php">SHOPAWAY</a></h1>
             </div>
                 <div class="right">
                     <nav>

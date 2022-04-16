@@ -14,7 +14,7 @@
             the products that you are actually looking for.
     </h6>
 </div>
-<div class="footer" style="position: relatives;bottom:0;">
+<div class="footer" style="position:relative;bottom:0;">
         <h1>
             SHOPAWAY
         </h1>

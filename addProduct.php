@@ -15,7 +15,7 @@
         $prstock = $_POST['pr_stock'];
         $file = $_FILES['file'];
 
-        $inpArray = [$prname,$prcat,$prsubcat,$pr_brand,$prprice,$prdisc,$file];
+        $inpArray = array("$prname","$prcat","$prsubcat","$pr_brand","$prprice","$prdisc","$file");
         $empt_stat = emptyCheck($inpArray);
 
         if($empt_stat == 0)

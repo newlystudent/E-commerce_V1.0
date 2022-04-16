@@ -37,9 +37,9 @@
                                                 <button style="background-color:#fff;border:0;box-shadow:none;height:auto;width:95%;height:auto;"><a><img src='<?php echo $row['image']; ?>' alt="product image" style="width:90%;"></a></button>
                                                 </div>
                                                 <div class="form product-data">
-                                                    <input type="text" value=<?= $row['product_id']?> style="display:none;" name="pro_id">
-                                                    <button style="color:#000;background-color:#fff;border:0;box-shadow:none;width:150px;font-size:14px;"><div class="product-name"><?php echo $row['product_name']?></div></button>
-                                                    <button style="color:#000;background-color:#fff;border:0;box-shadow:none;margin:10px auto 0 auto;font-size:14px"><?php echo $row['price']." ₹"?></button>
+                                                    <input type="text" value=<?php echo $row['product_id'];?> style="display:none;" name="pro_id">
+                                                    <button style="background-color: #fff;color:#111;box-shadow:none;border:none;width:80%;"><div class="product-name"><?php echo $row['product_name'];?></div></button>
+                                                    <button style="background-color: #fff;color:#111;box-shadow:none;border:none;width:80%;"><?php echo $row['price']." ₹";?></button>
                                                 </div>
                                         </form>
                                     </div>

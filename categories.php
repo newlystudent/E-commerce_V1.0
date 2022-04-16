@@ -32,8 +32,8 @@
                                                 </div>
                                                 <div class="form product-data">
                                                     <input type="text" value=<?= $row['product_id']?> style="display:none;" name="pro_id">
-                                                    <button style="color:#000;background-color:#fff;border:0;box-shadow:none;width:245px;font-size:18px;"><div class="product-name"><?php echo $row['product_name']?></div></button>
-                                                    <button style="color:#000;background-color:#fff;border:0;box-shadow:none;margin:10px auto 0 auto;"><?php echo $row['price']." ₹"?></button>
+                                                    <button style="background-color: #fff;color:#111;box-shadow:none;border:none;width:80%;"><div class="product-name"><?php echo $row['product_name'];?></div></button>
+                                                    <button style="background-color: #fff;color:#111;box-shadow:none;border:none;width:80%;"><?php echo $row['price']." ₹";?></button>
                                                 </div>
                                             </form>
                                         </div>

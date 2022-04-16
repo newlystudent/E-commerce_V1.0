@@ -6,7 +6,7 @@ include'includes/header.php';
             <h1 style="margin-top: 30px;">Welcome To Sign Up Panel</h1>
                 <form class="form-1" action="sign.php" method="POST">
                     
-                    <select name="role" class="sel">
+                    <select name="role" class="sel" required>
                         <option value=""> Select Your Account Option </option>
                         <option value="User">User</option>
                         <option value="Seller">Seller</option>

@@ -9,7 +9,7 @@
     $email = $userid;
     $password = $_POST['password'];
 
-    $inpArray = [$userid,$password];
+    $inpArray = array("$userid","$password");
     $empt_stat = emptyCheck($inpArray);
 
     if($empt_stat == 0){
@@ -44,8 +44,7 @@
             {
                 $strd_pass = $row1['password'];
                 $stat = passCheck($password,$strd_pass);
-            }
-                
+            }   
             
             if($stat == 0)
             {
@@ -54,10 +53,8 @@
 
             else
             {
-                if (session_status() == PHP_SESSION_NONE)
-                {
-                    session_start();
-                }
+                
+                session_start();
                 if($row != NULL)
                 {
                     $_SESSION["uid"]=$row['user_id'];

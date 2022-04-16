@@ -1,3 +1,0 @@
-INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `address`, `role`, `ip`, `date`) VALUES ('userid', 'fname lname', 'arfaerfeafq', 'arfaerfeafq', 'adderess', 'user', '10.2.3.2', '10254545');
-
-UPDATE `accounts` SET `username` = 'Rahul Dey', `password` = '12345678', `email` = 'asdjf@jd', `address` = 'asdda sdasdasdasada' WHERE `accounts`.`user_id` = 'Shyam202';
