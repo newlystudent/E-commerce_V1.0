@@ -1,53 +1,51 @@
-<?php 
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "shop_away";
-    $con = mysqli_connect($host,$user,$pass,$db);
-    $test = "Connecting Successfully";
-    if (mysqli_connect_errno())
-    {
+<?php
+if(!isset($_SESSION["uid"]))
+{
+    session_start();
+}
+    require_once '../includes/dbconn.php';
 ?>
-        <h1 style="margin:auto;text-align:center;">Connection Failed!! </h1>
-        <?php echo '' . mysqli_connect_error();
-        exit();
-    }                        
-?>
-<!DOCTYPE html> 
-<head>
-    <title>Admin Panel</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="index.css">
-<script src="index.js"></script>
-</head>
-<body>
 
-
-    
-    <div class="wrapper">
-        <div class="head">
-            <h1>Admin Panel</h1>
-            <span style="font-size:30px;cursor:pointer;padding:10px;" id="burg" onclick="openNav()">&#9776;</span>
-        </div>
-        <div class="body">
+        <?php
+            if(isset($_SESSION["admin_uid"]))
+            {
+            ?>
+            <!DOCTYPE html> 
+            <head>
+                <title>E-Commerce DWD ADMIN PANEL</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="styles.css">
+            <script src="index.js"></script>
+            </head>
+            <body>
+                
+                <div class="wrapper">
+                    <div class="head">
+                        <h1>ADMIN PANEL</h1>
+                        <span style="font-size:30px;cursor:pointer;padding:10px;" id="burg" onclick="openNav()">&#9776;</span>
+                    </div>
+                <div class="body">
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a href="#users">Users</a>
                 <a href="#sellers">Sellers</a>
                 <a href="#products">Products</a>
                 <a href="#purchase">Purchase</a>
+                <a href="#users">BackToTop</a>
+                <a href="admin_logout.php">Log out</a>
             </div>
-
+            
             <div id="main">
-                <h1 id="users">USERS</h1>
-                <div class="info" id="users">
+            <h1 style="text-decoration: underline;font-size:50px;">Welcome To DWD Admin!</h1>
+                <h1 id="users" style="padding:120px 0 30px 0;">USERS</h1>
+                <div class="info" id="users-block">
                     <div class="data-table" style="padding:20px 0">
                         <?php 
                             $q="SELECT * FROM `accounts` WHERE role='User'";
                             $res = mysqli_query($con,$q);
                             ?>
                             
-                            <div class="row" style="margin:-30px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;z-index:1;">
+                            <div class="row" style="margin:-31px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;z-index:1;">
                                 <div class="row-data" style="font-size: 24px;" >User_id</div>
                                 <div class="row-data" style="font-size: 24px;" >User_Name</div>
                                 <div class="row-data" style="font-size: 24px;" >Email_Address</div>
@@ -56,6 +54,7 @@
                                 <div class="row-data" style="font-size: 24px;" >Date Account Created</div>
                                 <div class="row-data" style="font-size: 24px;" >Time</div>
                                 <div class="row-data" style="font-size: 24px;" >Ip Address</div>
+                                <div class="row-data" style="font-size: 24px;" >Block/Unblock user</div>
                             </div>
                             <?php
                             while($row = mysqli_fetch_array($res))
@@ -70,24 +69,23 @@
                                 <div class="row-data"><?php echo $row['date']; ?></div>
                                 <div class="row-data"><?php echo $row['time']; ?></div>
                                 <div class="row-data"><?php echo $row['ip']; ?></div>
+                                <div class="row-data-button"><form action="accnt_stat.php" method="post"><input type="text" name="uid" value="<?php echo  $row['user_id'];?>" style="display:none;" /><button name="stat"><?php if($row['active_status'] == 1){?>Block<?php }else{ ?>Unblock<?php }?></button></form></div>
+
                             </div>
                             <?php
                             }
                         ?>
                     </div>
                 </div>
-                <h1 id="sellers">SELLERS</h1>
-                <div class="info" id="sellers">
+                <h1 id="sellers" style="padding:120px 0 30px 0;">SELLERS</h1>
+                <div class="info" id="sellers-block">
                     <div class="data-table" style="padding:20px 0">
                         <?php 
-                            $q = "SELECT DISTINCT seller_id FROM `products`";
-                            $res = mysqli_query($con,$q);
-                            $num = mysqli_num_rows($res);
                             $q="SELECT * FROM `accounts` WHERE role='Seller'";
                             $res = mysqli_query($con,$q);
                             ?>
                             
-                            <div class="row" style="margin:-30px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;">
+                            <div class="row" style="margin:-31px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;">
                                 <div class="row-data" style="font-size: 24px;" >Seller Id</div>
                                 <div class="row-data" style="font-size: 24px;" >Seller Name</div>
                                 <div class="row-data" style="font-size: 24px;" >Email Address</div>
@@ -96,6 +94,7 @@
                                 <div class="row-data" style="font-size: 24px;" >Date Account Created</div>
                                 <div class="row-data" style="font-size: 24px;" >Time</div>
                                 <div class="row-data" style="font-size: 24px;" >Ip Address</div>
+                                <div class="row-data" style="font-size: 24px;" >Block/Unblock seller</div>
                             </div>
                             <?php
                             while($row = mysqli_fetch_array($res))
@@ -110,21 +109,22 @@
                                 <div class="row-data"><?php echo $row['date']; ?></div>
                                 <div class="row-data"><?php echo $row['time']; ?></div>
                                 <div class="row-data"><?php echo $row['ip']; ?></div>
+                                <div class="row-data-button"><form action="accnt_stat.php" method="post"><input type="text" name="uid" value="<?php echo  $row['user_id'];?>" style="display:none;" /><button name="stat"><?php if($row['active_status'] == 1){?>Block<?php }else{ ?>Unblock<?php }?></button></form></div>
                             </div>
                             <?php
                             }
                         ?>
                     </div>
                 </div>
-                <h1 id="products">PRODUCTS</h1>
-                <div class="info" id="products">
+                <h1 id="products" style="padding:120px 0 30px 0;">PRODUCTS</h1>
+                <div class="info" id="products-block">
                     <div class="data-table" style="padding:20px 0">
                         <?php 
                             $q="SELECT * FROM `products`";
                             $res = mysqli_query($con,$q);
                             ?>
                             
-                            <div class="row" style="margin:-30px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;">
+                            <div class="row" style="margin:-31px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;">
                                 <div class="row-data" style="font-size: 24px;" >Product Name</div>
                                 <div class="row-data" style="font-size: 24px;" >Category</div>
                                 <div class="row-data" style="font-size: 24px;" >Sub category</div>
@@ -155,19 +155,20 @@
                                 <div class="row-data"><?php echo $row['stock']; ?></div>
                             </div>
                             <?php
+                             
                             }
                         ?>
                     </div>
                 </div>
-                <h1 id="purchase">Purchase</h1>
-                <div class="info" id="products">
+                <h1 id="purchase" style="padding:120px 0 30px 0;">PURCHASE</h1>
+                <div class="info" id="purchase-block">
                     <div class="data-table" style="padding:20px 0">
                         <?php 
                             $q="SELECT * FROM `purchase`";
                             $res = mysqli_query($con,$q);
                             ?>
                             
-                            <div class="row" style="margin:-30px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;">
+                            <div class="row" style="margin:-31px 0 10px 0;position:sticky;top:0px;background-color:#000;color:#fff;padding:7px 2px;">
                                 <div class="row-data" style="font-size: 24px;" >Serial number</div>
                                 <div class="row-data" style="font-size: 24px;" >Product id</div>
                                 <div class="row-data" style="font-size: 24px;" >Product Name</div>
@@ -190,23 +191,30 @@
                                 <div class="row-data"><?php echo $row['time']; ?></div>
                             </div>
                             <?php
-                            }
-                        ?>
+                                }
+                            ?>
                     </div>
                 </div>
             </div>
         </div>
-            
-    </div>
+        </div>
 
 
 </body>
 <div class="footer">
                     <h1>
-                        ADMINPaneL
+                        ADMIN PANEL
                     </h1>
                     <h5>© SHOPAWAY since 2022.</h5>
             </div>
 
 </html>
-</html> 
+</html>  
+            <?php            
+                
+            }
+            else{
+                header("location:admin_log_in.php");
+            }
+        ?>
+            

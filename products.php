@@ -6,7 +6,7 @@
     $productid =  $_POST["pro_id"];
     if(isset($productid)!=1)
     {
-        header('location:index.php?error=no%product%selected');
+        header('location:index.php');
     }
     else
     {

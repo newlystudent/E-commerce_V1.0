@@ -73,7 +73,7 @@
                     $_SESSION["contact_no"]=$row1['contact_no'];
                     $_SESSION["min"]=$min;
                 }
-                header('location:profile.php');
+                header('location:index.php');
             }
         }
     }

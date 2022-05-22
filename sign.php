@@ -68,7 +68,7 @@ $empt_stat = emptyCheck($inpArray);
         
         else
         {
-            $q = "INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `address`, `role`, `ip`, `date`, `time`,`contact_no`) VALUES ('$userid', '$username', '$password', '$email', '$address', '$role', '$ip', '$date', '$time','$contact_no')";
+            $q = "INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `address`, `role`, `ip`, `date`, `time`,`contact_no`,`active_status`) VALUES ('$userid', '$username', '$password', '$email', '$address', '$role', '$ip', '$date', '$time','$contact_no','1')";
             $res = mysqli_query($con,$q);
             header("location:log_in.php?status=account%created!");
         }
