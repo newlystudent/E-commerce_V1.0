@@ -13,7 +13,7 @@
         foreach($inpArray as $item)
         {
             $count = 0;
-            if(isset($item)!=1)
+            if(empty($item)==1)
             {
                 return 0;
             }

@@ -1,6 +1,11 @@
 <?php
     require_once 'includes/header.php';
     require_once 'includes/dbconn.php';
+
+    if((isset($_SESSION["uid"])!=1) && $_SESSION["uid"]!="Seller")
+    {
+        header("location:log_in.php?error=seller%not%logged%in!");
+    }
 ?>
 <h1 style="font-size: 39px;margin-top:25px;margin-bottom:45px;font-family: 'Nunito', sans-serif;">Upload Your Product Here!</h1>
 <form class="form-1" action="addProduct.php" enctype="multipart/form-data" method="post">

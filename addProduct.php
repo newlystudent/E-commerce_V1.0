@@ -1,5 +1,4 @@
 <?php
-    require_once 'includes/header.php';
     require_once 'includes/dbconn.php';
     require_once 'includes/date_time.php';
     require_once 'includes/ipadd.php';
@@ -17,7 +16,7 @@
 
         $inpArray = array("$prname","$prcat","$prsubcat","$pr_brand","$prprice","$prdisc","$file");
         $empt_stat = emptyCheck($inpArray);
-
+        echo $empt_stat;
         if($empt_stat == 0)
         {
             header("location:addProductform.php?error=input%not%given!");
@@ -68,7 +67,8 @@
         }
         
     }
+    else
+    {
+        header("location:addProductform.php?error=no%products%selected!");
+    }
 ?>
-<?php
-        require_once 'includes/footer.php';
-    ?>
