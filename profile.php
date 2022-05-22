@@ -29,6 +29,10 @@
         </form>
 <?php
     }
+    else
+    {
+        header("location:log_in.php?error=user%not%logged%in");
+    }
 ?>
 <?php
         require_once 'includes/footer.php';

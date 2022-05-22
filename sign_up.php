@@ -3,7 +3,8 @@ include'includes/header.php';
 ?>
            
             <div class="body">
-            <h1 style="margin-top: 30px;">Welcome To Sign Up Panel</h1>
+            <h1 style="margin-top: 30px;font-family: 'Roboto', sans-serif;font-size:50px;">Sign Up</h1>
+            <center><h2 style="margin-top: 15px;text-decoration: underline;font-family: 'Roboto', sans-serif;font-size:20px;">Create and account and enjoy unlimited shopping today!</h2></center>
                 <form class="form-1" action="sign.php" method="POST">
                     
                     <select name="role" class="sel" required>

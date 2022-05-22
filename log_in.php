@@ -2,7 +2,7 @@
 include'includes/header.php';
 ?>
             <div class="body">
-            <h1 style="margin-top: 30px;">Welcome To Log In Panel</h1>    
+            <h1 style="margin-top: 30px;font-family: 'Roboto', sans-serif;font-size:50px;">Log In</h1>    
             <form class="form-1" action="login.php" method="POST" style="margin-bottom: 120px;">
                 
                     <input type="text"       placeholder="Enter your user id or email" maxlength="40" minlength="7" name="userid_or_email" required />
@@ -12,8 +12,8 @@ include'includes/header.php';
                 </form>
             </div>
 <div class="footer" style="position: relative;bottom:0;">
-        <h1>
-            SHOPAWAY
-        </h1>
-    <h5 >© SHOPAWAY since 2022.</h5>
+    <h1 style="font-family: 'Roboto-Slab', sans-serif;">
+        SHOPAWAY
+    </h1>
+    <h5 style="font-family: 'Roboto-Mono', sans-serif;">© SHOPAWAY since 2022.</h5>
 </div>
