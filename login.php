@@ -18,12 +18,12 @@
 
     else
     {
-        $q= "SELECT * FROM `accounts` WHERE user_id='$userid';";
+        $q= "SELECT * FROM `accounts` WHERE user_id='$userid'";
         $res = mysqli_query($con,$q);
         $row = Null;
         $row = mysqli_fetch_array($res);
 
-        $q= "SELECT * FROM `accounts` WHERE email='$email';";
+        $q= "SELECT * FROM `accounts` WHERE email='$email'";
         $res1 = mysqli_query($con,$q);
         $row1 = Null;
         $row1 = mysqli_fetch_array($res1);
@@ -53,27 +53,36 @@
 
             else
             {
+
                 
-                session_start();
-                if($row != NULL)
+                if($row != NULL && $row['active_status'])
                 {
+                    session_start();
                     $_SESSION["uid"]=$row['user_id'];
                     $_SESSION["uname"]=$row['username'];
                     $_SESSION["email"]=$row['email'];
                     $_SESSION["role"]=$row['role'];
                     $_SESSION["contact_no"]=$row['contact_no'];
                     $_SESSION["min"]=$min;
+                    header("location:index.php?stat=welcome!");
                 }
-                elseif($row1 != NULL)
+                
+                elseif($row1 != NULL && $row1['active_status'])
                 {
+                    session_start();
                     $_SESSION["uid"]=$row1['user_id'];
                     $_SESSION["uname"]=$row1['username'];
                     $_SESSION["email"]=$row1['email'];
                     $_SESSION["role"]=$row1['role'];
                     $_SESSION["contact_no"]=$row1['contact_no'];
                     $_SESSION["min"]=$min;
+                    header("location:index.php?stat=welcome!");
                 }
-                header('location:index.php');
+                else
+                {
+                    header('location:index.php?error=user%blocked');
+                }
+                
             }
         }
     }

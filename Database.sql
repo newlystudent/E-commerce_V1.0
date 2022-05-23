@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 11, 2022 at 06:31 PM
+-- Generation Time: May 22, 2022 at 10:46 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `shop_away` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `shop_away`;
-
+  
 -- --------------------------------------------------------
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `date` varchar(11) NOT NULL,
   `time` varchar(11) NOT NULL,
   `contact_no` varchar(13) NOT NULL,
+  `active_status` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `contact_no` (`contact_no`),
   UNIQUE KEY `email` (`email`),
@@ -51,10 +52,33 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `address`, `role`, `ip`, `date`, `time`, `contact_no`) VALUES
-('Anu@008', 'Anupunja Dagupta', '12345678', 'anu@email', 'Address of  Anupunja', '', '::1', '05-04-22', '03:11:47:pm', '78945612334'),
-('Shyam008', 'Shyamendra Hazra', '123456789', 'shyamendrahazra1234@gmail.com', 'sad sayhd ajsssssshasjjjh         aashdsagh asjh asudhg ashdgas jkdh', 'Seller', '::1', '05-04-22', '03:02:18:pm', '7439445257'),
-('Shyam009', 'Shyamendra Hazra', '123456789', 'shyamendra1234@gmail.com', 'Address of The user Shyam008', 'User', '::1', '05-04-22', '04:16:51:pm', '7489456321');
+INSERT INTO `accounts` (`user_id`, `username`, `password`, `email`, `address`, `role`, `ip`, `date`, `time`, `contact_no`, `active_status`) VALUES
+('Anu@008', 'Anupunja Dagupta', '12345678', 'anu@email', 'Address of  Anupunja', 'User', '::1', '05-04-22', '03:11:47:pm', '78945612334', 1),
+('Shyam008', 'Shyamendra Hazra', '123456789', 'shyamendrahazra1234@gmail.com', 'sad sayhd ajsssssshasjjjh         aashdsagh asjh asudhg ashdgas jkdh', 'Seller', '::1', '05-04-22', '03:02:18:pm', '7439445257', 1),
+('Shyam009', 'Shyamendra Hazra', '123456789', 'shyamendra1234@gmail.com', 'Address of The user Shyam008', 'User', '::1', '05-04-22', '04:16:51:pm', '7489456321', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `sl_no` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_id` varchar(40) NOT NULL,
+  `password` varchar(16) NOT NULL,
+  `contact no` varchar(13) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  PRIMARY KEY (`sl_no`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`sl_no`, `admin_id`, `password`, `contact no`, `address`) VALUES
+(1, 'Admin01', '123456789', '123456789', 'Address of the Admin with id Admin01');
 
 -- --------------------------------------------------------
 
@@ -89,7 +113,7 @@ INSERT INTO `products` (`product_id`, `product_name`, `category`, `sub_category`
 ('prod6246cba754c397.10552014', ' Casual Grey t-shirt', 'T-shirt', 'Casual', 'Brand 1', 'uploaded/6246cba754c3f5.95363930.jpg', '750', 10, 'Anu@011', '::1', '01-04-22', '03:23:43:pm', 133),
 ('prod6246cc30b48468.09526302', ' Batman Printed t-shirt', 'T-shirt', 'Printed', 'brand 2', 'uploaded/6246cc30b484b8.10449032.jpg', '810', 10, 'Soubhik89', '::1', '01-04-22', '03:26:00:pm', 124),
 ('prod62470b18944f81.69166220', ' Simple Yellow t-shirt', 'T-shirt', 'Casual', 'Brand 1', 'uploaded/62470b18944fe8.65936178.png', '500', 10, 'Soubhik89', '::1', '01-04-22', '07:54:24:pm', 133),
-('prod62470b807fdcb9.66508535', ' Designed Grey t-shirt', 'T-shirt', 'Printed', 'Brand 2', 'uploaded/62470b807fdda1.88285559.png', '650', 10, 'Soubhik89', '::1', '01-04-22', '07:56:08:pm', 114),
+('prod62470b807fdcb9.66508535', ' Designed Grey t-shirt', 'T-shirt', 'Printed', 'Brand 2', 'uploaded/62470b807fdda1.88285559.png', '650', 10, 'Soubhik89', '::1', '01-04-22', '07:56:08:pm', 113),
 ('prod62470baea98cc4.13361295', ' Printed white t-shirt', 'T-shirt', 'Printed', 'Brand 1', 'uploaded/62470baea98d10.95894838.png', '700', 10, 'Soubhik89', '::1', '01-04-22', '07:56:54:pm', 133),
 ('prod62470bfbc99f70.79738873', ' Dc comics t-shirt', 'T-shirt', 'Printed', 'Brand 1', 'uploaded/62470bfbc99fc9.35676716.png', '1200', 10, 'Soubhik89', '::1', '01-04-22', '07:58:11:pm', 133),
 ('prod62470c85347c00.22234700', ' Printed deep yellow t-shirt', 'T-shirt', 'Printed', 'Brand 2', 'uploaded/62470c85347c50.55443148.png', '950', 10, 'Anu@011', '::1', '01-04-22', '08:00:29:pm', 127),
@@ -151,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `purchase` (
   `date` varchar(20) NOT NULL,
   `time` varchar(20) NOT NULL,
   PRIMARY KEY (`s_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `purchase`
@@ -172,7 +196,8 @@ INSERT INTO `purchase` (`s_no`, `product_id`, `product_name`, `buyer_id`, `ip`, 
 (12, 'prod62470b807fdcb9.66508535', ' Designed Grey t-shirt', 'Shyam008', '::1', '05-04-22', '05:00:35:pm'),
 (13, 'prod62470b807fdcb9.66508535', ' Designed Grey t-shirt', 'Shyam008', '::1', '11-04-22', '11:05:50:pm'),
 (14, 'prod6246cc30b48468.09526302', ' Batman Printed t-shirt', 'Shyam008', '::1', '11-04-22', '11:10:23:pm'),
-(15, 'prod6246cc30b48468.09526302', ' Batman Printed t-shirt', 'Shyam008', '::1', '11-04-22', '11:14:26:pm');
+(15, 'prod6246cc30b48468.09526302', ' Batman Printed t-shirt', 'Shyam008', '::1', '11-04-22', '11:14:26:pm'),
+(16, 'prod62470b807fdcb9.66508535', ' Designed Grey t-shirt', 'Shyam008', '::1', '23-05-22', '04:08:42:am');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

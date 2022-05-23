@@ -27,4 +27,5 @@
     {
         header("location:index.php?error=no%user%selected!");
     }
+
 ?>

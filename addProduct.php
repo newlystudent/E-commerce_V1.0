@@ -1,4 +1,8 @@
 <?php
+if(!isset($_SESSION["uid"]))
+{
+    session_start();
+}
     require_once 'includes/dbconn.php';
     require_once 'includes/date_time.php';
     require_once 'includes/ipadd.php';
@@ -44,11 +48,11 @@
                         $filenewname=uniqid('',true).".".$fileext;
                         $filedestination='uploaded/'.$filenewname;
                         move_uploaded_file($filetmpname,$filedestination);
-                        $q="INSERT INTO `products` (`product_id`, `product_name`, `category`, `sub_category`, `brand`, `image`, `price`, `discount`,`seller_id`,`ip`,`date`,`time`,`stock`)
+                        $q="INSERT INTO `waiting_list` (`product_id`, `product_name`, `category`, `sub_category`, `brand`, `image`, `price`, `discount`,`seller_id`,`ip`,`date`,`time`,`stock`)
                         VALUES 
-                        ('$fileid', ' $prname', '$prcat', '$prsubcat', '$pr_brand', '$filedestination', '$prprice','$prdisc','$uid','$ip','$date','$time','$prstock');";
+                        ('$fileid', ' $prname', '$prcat', '$prsubcat', '$pr_brand', '$filedestination', '$prprice','$prdisc','$uid','$ip','$date','$time','$prstock')";
                         $rs=mysqli_query($con,$q);
-                        header("location:addProductform.php?status=product%uploaded");
+                        header("location:addProductform.php?stat=product%uploaded!");
                     }
                     else
                     {
