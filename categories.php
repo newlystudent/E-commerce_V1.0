@@ -12,7 +12,7 @@
     $count = emptyCheck($arr);
     if($count == 0)
     {
-        header('location:index_.php?error=no%category%selected');
+        header('location:index.php?error=no%category%selected');
     }
     else
     {

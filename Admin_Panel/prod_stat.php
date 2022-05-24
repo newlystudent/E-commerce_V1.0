@@ -9,7 +9,7 @@
         $res = mysqli_query($con,$query);
         
         //Fetching updated record
-        $query = "SELECT * FROM `waiting_list` WHERE `product_id` = '$product_id' AND `admin_approval` = '1'";
+        $query = "SELECT * FROM `waiting_list` WHERE `product_id` = '$product_id'";
         $res = mysqli_query($con,$query);
         $row = mysqli_fetch_array($res);
         
